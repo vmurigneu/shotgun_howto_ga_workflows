@@ -9,18 +9,13 @@ affiliations:
 
 ## About 
 
-This document describes how to use some shotgun metagenomics workflow on galaxy Australia. 
+This document describes how to use a shotgun metagenomics workflow on galaxy Australia. It is using the tools MetaPhlAn2 for taxonomy classification and HUMAnN2 for functional profiling of the metagenomes.  
 
-The aim of this workflow is to handle the routine ‘boring’ part of single cell RNAseq data processing. It will produces an ‘AnnData’ object, which can then be used as a base for downstream analysis – either within galaxy or outside of it. AnnData is a standard format used by the ‘scanpy’ python package. 
+The aim of this workflow is to handle the routine part of shotgun metagenomics data processing.  
 
-These workflows represent just one way of processing data for a ‘typical’ scRNAseq experiment – there are many other options!  
+This workflow represents just one way of processing data for a ‘typical’ shotgun metagenomics experiment – there are many other options!  
 
 The how-to guide is available [here](scrnaseq_wf_guide.html)
-
-
-## Guide sections
-
-> You can use this section to add navigation tiles for the pages you have created as part of your guide.
 
 
 ## Please cite this guide as follows
