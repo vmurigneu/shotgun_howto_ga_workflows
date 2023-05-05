@@ -25,7 +25,7 @@ The how-to guide is available [here](scrnaseq_wf_guide.html)
 
 ## Acknowledgements
 
-The workflow is based on the Galaxy Training [Analyses of metagenomics data tutorial](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data)
+The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics data](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data)
 
 This guide makes use of the ELIXIR toolkit theme: [![theme badge](https://img.shields.io/badge/ELIXIR%20toolkit%20theme-jekyll-blue?color=0d6efd)](https://github.com/ELIXIR-Belgium/elixir-toolkit-theme)
 
