@@ -83,7 +83,7 @@ G. Clicking on a collection reveals its content.
 
 <p align="center"><img src="./images/run_workflow_collection.png" width="100%"></p>
 
-Link to the shotgun metagenomics workflow for collection: [link](https://usegalaxy.org.au/u/valentine_murigneux/w/shotgun-metagenomics-ga-workflow-for-collection)   
+[Link](https://usegalaxy.org.au/u/valentine_murigneux/w/shotgun-metagenomics-ga-workflow-for-collection) to the shotgun metagenomics workflow for collection  
 
 ---
 
@@ -107,3 +107,11 @@ https://usegalaxy.org.au/workflows/invocations/report?id=78f98f14bf4a7a20) gener
 ---
 
 # License(s)
+
+Usage of this workflow is dependant on the (generally permissive) licences of the underlying tools and platforms; including;
+
+* [MetaPhlAn](https://github.com/biobakery/MetaPhlAn/blob/master/license.txt)
+* [HUMAnN](https://github.com/biobakery/humann/blob/master/LICENSE)
+* [Krona](https://github.com/marbl/Krona/blob/master/KronaTools/LICENSE.txt)
+* [Galaxy](https://galaxyproject.org/admin/license/)
+* [Galaxy Australia terms of service](https://site.usegalaxy.org.au/about#terms-of-service)
