@@ -16,9 +16,9 @@ toc: false
 
 # Background and Tutorials 
 
-This document describes how to use a shotgun metagenomics workflow on galaxy Australia. The aim of this workflow is to handle the routine part of shotgun metagenomics data processing. The workflow is using the tools MetaPhlAn2 for taxonomy classification and HUMAnN2 for functional profiling of the metagenomes.  
+This document describes how to use a shotgun metagenomics workflow on Galaxy Australia. The aim of this workflow is to handle the routine part of shotgun metagenomics data processing. The workflow is using the tools MetaPhlAn2 for taxonomy classification and HUMAnN2 for functional profiling of the metagenomes.  
 
-The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics data](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data)
+The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics data](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data). 
 
 ---
 
