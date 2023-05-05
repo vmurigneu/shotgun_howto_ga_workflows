@@ -1,8 +1,7 @@
 subitems:
   - title: About
     url: /index
-  - title: Example page
-    url: /example_page
+  - title: Shotgun metagenomics Workflows Guide
+    url: /shotgun_wf_guide.md
   - title: Contributors
     url: /contributors
-  
