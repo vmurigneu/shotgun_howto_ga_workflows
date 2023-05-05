@@ -2,6 +2,7 @@
 
 This is the draft for the shotgun metagenomics howto documentation. View here: https://vmurigneu.github.io/shotgun_howto_ga_workflows/index
 
+
 ## Acknowledgements for the guides
 
 This work is supported by the [Australian BioCommons](https://www.biocommons.org.au/) via funding from [Bioplatforms Australia](https://bioplatforms.com/), the Australian Research Data Commons (https://doi.org/10.47486/PL105) and the Queensland Government RICF programme. Bioplatforms Australia and the Australian Research Data Commons are funded by the National Collaborative Research Infrastructure Strategy (NCRIS).
