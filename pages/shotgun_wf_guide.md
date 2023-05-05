@@ -10,7 +10,7 @@ toc: false
   - [User guide](#user-guide)
       + [Running a multi sample experiment](#running-a-multi-sample-experiment)
   - [Example output](#example-output)
-  - [Licence(s)](#licences)
+  - [Licenses](#licenses)
 
 ---
 
@@ -106,7 +106,7 @@ https://usegalaxy.org.au/workflows/invocations/report?id=78f98f14bf4a7a20) gener
 
 ---
 
-# License(s)
+# Licenses
 
 Usage of this workflow is dependant on the (generally permissive) licences of the underlying tools and platforms; including;
 
