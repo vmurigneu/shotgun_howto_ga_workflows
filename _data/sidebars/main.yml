@@ -2,6 +2,6 @@ subitems:
   - title: About
     url: /index
   - title: Shotgun metagenomics Workflows Guide
-    url: /shotgun_wf_guide.md
+    url: /shotgun_wf_guide
   - title: Contributors
     url: /contributors
