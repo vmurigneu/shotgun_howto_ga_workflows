@@ -1,0 +1,850 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "",
+    "format-version": "0.1",
+    "name": "Extract number of reads table from MetaPhlAn output for diversity stats",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "Metaphlan community profile collection"
+                }
+            ],
+            "label": "Metaphlan community profile collection",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 22.082967235738778
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "fef39166-74f3-4561-8cb9-8f8fd2ca0907",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": "Cut1",
+            "errors": null,
+            "id": 1,
+            "input_connections": {
+                "input": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Cut",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 259.2076520291103,
+                "top": 30.60972590964488
+            },
+            "post_job_actions": {},
+            "tool_id": "Cut1",
+            "tool_state": "{\"columnList\": \"c1,c5\", \"delimiter\": \"T\", \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.2",
+            "type": "tool",
+            "uuid": "d18248cc-1059-4605-9f2a-82b6835dc114",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "out_file1",
+                    "uuid": "7684bb05-f905-4012-b8f0-d9893ebd2a16"
+                }
+            ]
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/1.1.1",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "infile": {
+                    "id": 1,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": "Header renaming to allow merging of read table",
+            "name": "Text transformation",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 516.7666625976562,
+                "top": 5.4166717529296875
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_sed_tool/1.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"adv_opts\": {\"adv_opts_selector\": \"basic\", \"__current_case__\": 0}, \"code\": \"s/estimated_number_of_reads_from_the_clade/relative_abundance/\", \"infile\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.1",
+            "type": "tool",
+            "uuid": "2ea8701e-f660-41a4-9960-cc1520cf20cb",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "83e923f4-12b7-44b4-9199-aee74f4d6648"
+                }
+            ]
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/merge_metaphlan_tables/merge_metaphlan_tables/2.6.0.0",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "input_files": {
+                    "id": 2,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Merge",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "tabular"
+                }
+            ],
+            "position": {
+                "left": 744.0575446480392,
+                "top": 0
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Merged MetaPhlAn2 files"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/merge_metaphlan_tables/merge_metaphlan_tables/2.6.0.0",
+            "tool_shed_repository": {
+                "changeset_revision": "2cff76cf35c6",
+                "name": "merge_metaphlan_tables",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input_files\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "2.6.0.0",
+            "type": "tool",
+            "uuid": "1fbb0b3f-6ab4-4e58-9044-3d6094fe2d36",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "7d1c9f97-ecdb-4b17-adb4-1f6ae8648c26"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "",
+            "id": 4,
+            "input_connections": {
+                "Merged profile table": {
+                    "id": 3,
+                    "input_subworkflow_step_id": 1,
+                    "output_name": "output"
+                },
+                "Metaphlan community profile": {
+                    "id": 0,
+                    "input_subworkflow_step_id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Rename Metaphlan output with sampleID",
+            "outputs": [],
+            "position": {
+                "left": 759.683349609375,
+                "top": 612.3333129882812
+            },
+            "subworkflow": {
+                "a_galaxy_workflow": "true",
+                "annotation": "",
+                "format-version": "0.1",
+                "name": "Rename Metaphlan output with sampleID",
+                "steps": {
+                    "0": {
+                        "annotation": "",
+                        "content_id": null,
+                        "errors": null,
+                        "id": 0,
+                        "input_connections": {},
+                        "inputs": [
+                            {
+                                "description": "",
+                                "name": "Metaphlan community profile"
+                            }
+                        ],
+                        "label": "Metaphlan community profile",
+                        "name": "Input dataset collection",
+                        "outputs": [],
+                        "position": {
+                            "left": 0,
+                            "top": 0
+                        },
+                        "tool_id": null,
+                        "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list\"}",
+                        "tool_version": null,
+                        "type": "data_collection_input",
+                        "uuid": "d056b3ec-65e2-4f1e-aded-a1977b3bb723",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "1": {
+                        "annotation": "",
+                        "content_id": null,
+                        "errors": null,
+                        "id": 1,
+                        "input_connections": {},
+                        "inputs": [
+                            {
+                                "description": "",
+                                "name": "Merged profile table"
+                            }
+                        ],
+                        "label": "Merged profile table",
+                        "name": "Input dataset",
+                        "outputs": [],
+                        "position": {
+                            "left": 3.5,
+                            "top": 245
+                        },
+                        "tool_id": null,
+                        "tool_state": "{\"optional\": false, \"tag\": \"\"}",
+                        "tool_version": null,
+                        "type": "data_input",
+                        "uuid": "17e1f3d1-353e-41e7-b943-095f58deaa62",
+                        "when": null,
+                        "workflow_outputs": []
+                    },
+                    "2": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.2",
+                        "errors": null,
+                        "id": 2,
+                        "input_connections": {
+                            "input_collection": {
+                                "id": 0,
+                                "output_name": "output"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Extract element identifiers",
+                        "outputs": [
+                            {
+                                "name": "output",
+                                "type": "txt"
+                            }
+                        ],
+                        "position": {
+                            "left": 310.5,
+                            "top": 5
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.2",
+                        "tool_shed_repository": {
+                            "changeset_revision": "d3c07d270a50",
+                            "name": "collection_element_identifiers",
+                            "owner": "iuc",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"input_collection\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "0.0.2",
+                        "type": "tool",
+                        "uuid": "a66c1e19-bf51-4dc3-8949-d901fada8805",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "output",
+                                "uuid": "3d720d6a-9388-48b6-a763-76397d6c2eb8"
+                            }
+                        ]
+                    },
+                    "3": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/add_line_to_file/add_line_to_file/0.1.0",
+                        "errors": null,
+                        "id": 3,
+                        "input_connections": {
+                            "infile": {
+                                "id": 2,
+                                "output_name": "output"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Add line to file",
+                        "outputs": [
+                            {
+                                "name": "outfile",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 547.5,
+                            "top": 5
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/add_line_to_file/add_line_to_file/0.1.0",
+                        "tool_shed_repository": {
+                            "changeset_revision": "8e251055b1a9",
+                            "name": "add_line_to_file",
+                            "owner": "bgruening",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"infile\": {\"__class__\": \"ConnectedValue\"}, \"options\": \"header\", \"text_input\": \"ID\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "0.1.0",
+                        "type": "tool",
+                        "uuid": "17472257-ba6d-4193-a28e-5003647a3048",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "outfile",
+                                "uuid": "0043e299-5dff-4f8f-ad05-d110497ad66a"
+                            }
+                        ]
+                    },
+                    "4": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/datamash_transpose/datamash_transpose/1.8+galaxy0",
+                        "errors": null,
+                        "id": 4,
+                        "input_connections": {
+                            "in_file": {
+                                "id": 3,
+                                "output_name": "outfile"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Transpose",
+                        "outputs": [
+                            {
+                                "name": "out_file",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 790,
+                            "top": 7
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/datamash_transpose/datamash_transpose/1.8+galaxy0",
+                        "tool_shed_repository": {
+                            "changeset_revision": "374cb875d38a",
+                            "name": "datamash_transpose",
+                            "owner": "iuc",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"in_file\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.8+galaxy0",
+                        "type": "tool",
+                        "uuid": "27bad42b-5675-4203-9589-a12668040a8c",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "out_file",
+                                "uuid": "7dcb7be6-1445-447d-b650-b9b51179a78e"
+                            }
+                        ]
+                    },
+                    "5": {
+                        "annotation": "",
+                        "content_id": "cat1",
+                        "errors": null,
+                        "id": 5,
+                        "input_connections": {
+                            "input1": {
+                                "id": 4,
+                                "output_name": "out_file"
+                            },
+                            "queries_0|input2": {
+                                "id": 1,
+                                "output_name": "output"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Concatenate datasets",
+                        "outputs": [
+                            {
+                                "name": "out_file1",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 371.5,
+                            "top": 236
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "cat1",
+                        "tool_state": "{\"input1\": {\"__class__\": \"ConnectedValue\"}, \"queries\": [{\"__index__\": 0, \"input2\": {\"__class__\": \"ConnectedValue\"}}], \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.0.0",
+                        "type": "tool",
+                        "uuid": "dbc03681-ab5d-4256-a659-792c7df77aea",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "out_file1",
+                                "uuid": "11b41569-527d-4233-ba72-387d554df342"
+                            }
+                        ]
+                    },
+                    "6": {
+                        "annotation": "",
+                        "content_id": "Grep1",
+                        "errors": null,
+                        "id": 6,
+                        "input_connections": {
+                            "input": {
+                                "id": 5,
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "inputs": [],
+                        "label": null,
+                        "name": "Select",
+                        "outputs": [
+                            {
+                                "name": "out_file1",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 676.5,
+                            "top": 252
+                        },
+                        "post_job_actions": {},
+                        "tool_id": "Grep1",
+                        "tool_state": "{\"input\": {\"__class__\": \"ConnectedValue\"}, \"invert\": \"-v\", \"keep_header\": false, \"pattern\": \"dataset_([1-9])\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.0.4",
+                        "type": "tool",
+                        "uuid": "55254992-5e14-45e1-80d0-a40ff368a608",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "out_file1",
+                                "uuid": "9fec4c61-12ce-486e-b362-098c12a8cf98"
+                            }
+                        ]
+                    },
+                    "7": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+                        "errors": null,
+                        "id": 7,
+                        "input_connections": {
+                            "input": {
+                                "id": 6,
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "inputs": [],
+                        "label": "Remove fastq files suffixes in header",
+                        "name": "Regex Find And Replace",
+                        "outputs": [
+                            {
+                                "name": "out_file1",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 946,
+                            "top": 254.5
+                        },
+                        "post_job_actions": {
+                            "DeleteIntermediatesActionout_file1": {
+                                "action_arguments": {},
+                                "action_type": "DeleteIntermediatesAction",
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+                        "tool_shed_repository": {
+                            "changeset_revision": "503bcd6ebe4b",
+                            "name": "regex_find_replace",
+                            "owner": "galaxyp",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"checks\": [{\"__index__\": 0, \"pattern\": \".fastq.gz\", \"replacement\": \"\"}, {\"__index__\": 1, \"pattern\": \"_S\\\\d+_R\\\\d_001\", \"replacement\": \"\"}], \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.0.3",
+                        "type": "tool",
+                        "uuid": "969d78cf-5e8d-4d75-b1be-1a624a7255de",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": null,
+                                "output_name": "out_file1",
+                                "uuid": "1fc1e4a3-965e-4cb3-b62a-d2628edba481"
+                            }
+                        ]
+                    },
+                    "8": {
+                        "annotation": "",
+                        "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+                        "errors": null,
+                        "id": 8,
+                        "input_connections": {
+                            "infile": {
+                                "id": 7,
+                                "output_name": "out_file1"
+                            }
+                        },
+                        "inputs": [
+                            {
+                                "description": "runtime parameter for tool Search in textfiles",
+                                "name": "infile"
+                            }
+                        ],
+                        "label": null,
+                        "name": "Search in textfiles",
+                        "outputs": [
+                            {
+                                "name": "output",
+                                "type": "input"
+                            }
+                        ],
+                        "position": {
+                            "left": 1216.5,
+                            "top": 244
+                        },
+                        "post_job_actions": {
+                            "RenameDatasetActionoutput": {
+                                "action_arguments": {
+                                    "newname": "MetaPhlAn2 merged taxonomy abundance table with sampleID"
+                                },
+                                "action_type": "RenameDatasetAction",
+                                "output_name": "output"
+                            }
+                        },
+                        "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+                        "tool_shed_repository": {
+                            "changeset_revision": "d698c222f354",
+                            "name": "text_processing",
+                            "owner": "bgruening",
+                            "tool_shed": "toolshed.g2.bx.psu.edu"
+                        },
+                        "tool_state": "{\"case_sensitive\": \"-i\", \"color\": \"NOCOLOR\", \"infile\": {\"__class__\": \"RuntimeValue\"}, \"invert\": \"-v\", \"lines_after\": \"0\", \"lines_before\": \"0\", \"regex_type\": \"-P\", \"url_paste\": \"^#estimated\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+                        "tool_version": "1.1.1",
+                        "type": "tool",
+                        "uuid": "f34a974a-7e96-49f7-af4a-963f5f1ad54d",
+                        "when": null,
+                        "workflow_outputs": [
+                            {
+                                "label": "MetaPhlAn2 merged taxonomy abundance table with sampleID",
+                                "output_name": "output",
+                                "uuid": "b197c7a8-95b1-45eb-870a-5b5a851cf7b3"
+                            }
+                        ]
+                    }
+                },
+                "tags": "",
+                "uuid": "36722db4-3693-4aa7-b0e9-83d90a22635b"
+            },
+            "tool_id": null,
+            "type": "subworkflow",
+            "uuid": "b82e8459-34b8-4cb2-adc1-03139a71560b",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "2:output",
+                    "uuid": "ad22956d-711f-4afd-ba4f-492a3651dcd7"
+                },
+                {
+                    "label": null,
+                    "output_name": "3:outfile",
+                    "uuid": "ece363e2-6ab3-4c70-b4ac-e5402992f749"
+                },
+                {
+                    "label": null,
+                    "output_name": "5:out_file1",
+                    "uuid": "c27028a6-b625-4c88-a71b-27ff3996597f"
+                },
+                {
+                    "label": null,
+                    "output_name": "6:out_file1",
+                    "uuid": "7bea0799-a27a-4020-924c-c8e05f6e16ca"
+                }
+            ]
+        },
+        "5": {
+            "annotation": "remove suffixes such as \"_S2_R1_001\"",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+            "errors": null,
+            "id": 5,
+            "input_connections": {
+                "input": {
+                    "id": 4,
+                    "output_name": "MetaPhlAn2 merged taxonomy abundance table with sampleID"
+                }
+            },
+            "inputs": [],
+            "label": "Remove fastq files suffixes in header",
+            "name": "Regex Find And Replace",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 987.6973073351912,
+                "top": 78.64436554266777
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+            "tool_shed_repository": {
+                "changeset_revision": "503bcd6ebe4b",
+                "name": "regex_find_replace",
+                "owner": "galaxyp",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"checks\": [{\"__index__\": 0, \"pattern\": \"_S\\\\d+_R\\\\d_001\", \"replacement\": \"\"}], \"input\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.3",
+            "type": "tool",
+            "uuid": "403563c0-7c88-4210-9ea3-f5fee095c7a3",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "out_file1",
+                    "uuid": "7736fd0a-2e2c-4a52-949e-a9809187cdb3"
+                }
+            ]
+        },
+        "6": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "errors": null,
+            "id": 6,
+            "input_connections": {
+                "infile": {
+                    "id": 5,
+                    "output_name": "out_file1"
+                }
+            },
+            "inputs": [],
+            "label": "Extract species information",
+            "name": "Search in textfiles",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1234.5248959965481,
+                "top": 86.1188486536677
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"case_sensitive\": \"-i\", \"color\": \"NOCOLOR\", \"infile\": {\"__class__\": \"ConnectedValue\"}, \"invert\": \"\", \"lines_after\": \"0\", \"lines_before\": \"0\", \"regex_type\": \"-P\", \"url_paste\": \"s__|^#|^ID\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.1",
+            "type": "tool",
+            "uuid": "6c13a536-bb60-447a-a145-7bb18262cefb",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "53d1cabc-3389-4fa0-9960-a744890a3341"
+                }
+            ]
+        },
+        "7": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "errors": null,
+            "id": 7,
+            "input_connections": {
+                "infile": {
+                    "id": 6,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": "Extract species information only",
+            "name": "Search in textfiles",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1497.5239674914415,
+                "top": 59.17672925008711
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"case_sensitive\": \"-i\", \"color\": \"NOCOLOR\", \"infile\": {\"__class__\": \"ConnectedValue\"}, \"invert\": \"-v\", \"lines_after\": \"0\", \"lines_before\": \"0\", \"regex_type\": \"-P\", \"url_paste\": \"t__\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.1",
+            "type": "tool",
+            "uuid": "e56451bf-8d20-43c5-9d3d-5a8909a4e21c",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "8c54b481-6345-43bc-b284-6fc4d284ab2a"
+                }
+            ]
+        },
+        "8": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/1.1.2",
+            "errors": null,
+            "id": 8,
+            "input_connections": {
+                "infile": {
+                    "id": 7,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": "Remove decimals from numeric values",
+            "name": "Replace Text",
+            "outputs": [
+                {
+                    "name": "outfile",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1737.3878245234173,
+                "top": 73.56855840514746
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_replace_in_line/1.1.2",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"infile\": {\"__class__\": \"ConnectedValue\"}, \"replacements\": [{\"__index__\": 0, \"find_pattern\": \"\\\\.0\", \"replace_pattern\": \"\"}], \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.2",
+            "type": "tool",
+            "uuid": "5df8431a-0a46-42fb-8999-fb59fe2f1d9e",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "outfile",
+                    "uuid": "4b7a0dc6-6784-4735-bbda-63941767c904"
+                }
+            ]
+        },
+        "9": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "errors": null,
+            "id": 9,
+            "input_connections": {
+                "infile": {
+                    "id": 8,
+                    "output_name": "outfile"
+                }
+            },
+            "inputs": [],
+            "label": "Remove header, Alpha/Beta diversity input file",
+            "name": "Search in textfiles",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 1978.2574865257966,
+                "top": 87.2794800371403
+            },
+            "post_job_actions": {
+                "RenameDatasetActionoutput": {
+                    "action_arguments": {
+                        "newname": "Metaphlan species output, Alpha/Beta diversity input file"
+                    },
+                    "action_type": "RenameDatasetAction",
+                    "output_name": "output"
+                }
+            },
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/bgruening/text_processing/tp_grep_tool/1.1.1",
+            "tool_shed_repository": {
+                "changeset_revision": "d698c222f354",
+                "name": "text_processing",
+                "owner": "bgruening",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"case_sensitive\": \"-i\", \"color\": \"NOCOLOR\", \"infile\": {\"__class__\": \"ConnectedValue\"}, \"invert\": \"-v\", \"lines_after\": \"0\", \"lines_before\": \"0\", \"regex_type\": \"-P\", \"url_paste\": \"^#\", \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.1.1",
+            "type": "tool",
+            "uuid": "037acd63-ff4f-4d5a-844e-c9fda08f2ca9",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "Metaphlan species output, Alpha/Beta diversity input file",
+                    "output_name": "output",
+                    "uuid": "c415faf8-0f2d-45cf-8790-176f32bb8961"
+                }
+            ]
+        }
+    },
+    "tags": [
+        "GUCFG2Galaxy"
+    ],
+    "uuid": "1af50b63-615f-4fd5-a8c7-575bb716407b",
+    "version": 59
+}

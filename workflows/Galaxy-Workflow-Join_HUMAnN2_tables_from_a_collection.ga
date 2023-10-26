@@ -1,0 +1,237 @@
+{
+    "a_galaxy_workflow": "true",
+    "annotation": "Formatting the files for input to Join HUMAnN2 generated tables tool",
+    "format-version": "0.1",
+    "name": "Join HUMAnN2 tables from a collection",
+    "steps": {
+        "0": {
+            "annotation": "",
+            "content_id": null,
+            "errors": null,
+            "id": 0,
+            "input_connections": {},
+            "inputs": [
+                {
+                    "description": "",
+                    "name": "HUMAnN2 results collection"
+                }
+            ],
+            "label": "HUMAnN2 results collection",
+            "name": "Input dataset collection",
+            "outputs": [],
+            "position": {
+                "left": 0,
+                "top": 33.71665954589844
+            },
+            "tool_id": null,
+            "tool_state": "{\"optional\": false, \"tag\": \"\", \"collection_type\": \"list\"}",
+            "tool_version": null,
+            "type": "data_collection_input",
+            "uuid": "68a48f65-dc3b-489c-b14c-e97e472885f0",
+            "when": null,
+            "workflow_outputs": []
+        },
+        "1": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.2",
+            "errors": null,
+            "id": 1,
+            "input_connections": {
+                "input_collection": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [],
+            "label": null,
+            "name": "Extract element identifiers",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "txt"
+                }
+            ],
+            "position": {
+                "left": 217.8333282470703,
+                "top": 133.86666870117188
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/collection_element_identifiers/collection_element_identifiers/0.0.2",
+            "tool_shed_repository": {
+                "changeset_revision": "d3c07d270a50",
+                "name": "collection_element_identifiers",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input_collection\": {\"__class__\": \"ConnectedValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.0.2",
+            "type": "tool",
+            "uuid": "4672843b-3c1f-4678-b791-7a8dd711fb52",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "output",
+                    "uuid": "6f25f2be-9a30-4bc7-aa5b-2a64960f62f0"
+                }
+            ]
+        },
+        "2": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+            "errors": null,
+            "id": 2,
+            "input_connections": {
+                "input": {
+                    "id": 1,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Regex Find And Replace",
+                    "name": "input"
+                }
+            ],
+            "label": "Regex find and replace: remove fastq files suffixes in sample names",
+            "name": "Regex Find And Replace",
+            "outputs": [
+                {
+                    "name": "out_file1",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 476.54998779296875,
+                "top": 132.23333740234375
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/galaxyp/regex_find_replace/regex1/1.0.3",
+            "tool_shed_repository": {
+                "changeset_revision": "503bcd6ebe4b",
+                "name": "regex_find_replace",
+                "owner": "galaxyp",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"checks\": [{\"__index__\": 0, \"pattern\": \".gz\", \"replacement\": \"\"}, {\"__index__\": 1, \"pattern\": \"_S\\\\d+_R\\\\d_001\", \"replacement\": \"\"}], \"input\": {\"__class__\": \"RuntimeValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.3",
+            "type": "tool",
+            "uuid": "74897785-8d84-4de0-9dd9-fffa43551ec3",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": null,
+                    "output_name": "out_file1",
+                    "uuid": "f51ecee9-66e7-462b-a0af-a39fc1436a73"
+                }
+            ]
+        },
+        "3": {
+            "annotation": "",
+            "content_id": "__RELABEL_FROM_FILE__",
+            "errors": null,
+            "id": 3,
+            "input_connections": {
+                "how|labels": {
+                    "id": 2,
+                    "output_name": "out_file1"
+                },
+                "input": {
+                    "id": 0,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Relabel identifiers",
+                    "name": "how"
+                },
+                {
+                    "description": "runtime parameter for tool Relabel identifiers",
+                    "name": "input"
+                }
+            ],
+            "label": null,
+            "name": "Relabel identifiers",
+            "outputs": [
+                {
+                    "name": "output",
+                    "type": "input"
+                }
+            ],
+            "position": {
+                "left": 811.2000122070312,
+                "top": 0
+            },
+            "post_job_actions": {},
+            "tool_id": "__RELABEL_FROM_FILE__",
+            "tool_state": "{\"how\": {\"how_select\": \"txt\", \"__current_case__\": 0, \"labels\": {\"__class__\": \"RuntimeValue\"}, \"strict\": false}, \"input\": {\"__class__\": \"RuntimeValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "1.0.0",
+            "type": "tool",
+            "uuid": "cbe5b1f9-1ac9-4bd5-b712-79316d441361",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "input dataset(s) (relabelled)",
+                    "output_name": "output",
+                    "uuid": "c8bfe85a-7a6a-4306-8227-386ab715c0d3"
+                }
+            ]
+        },
+        "4": {
+            "annotation": "",
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_join_tables/humann2_join_tables/0.11.1.2",
+            "errors": null,
+            "id": 4,
+            "input_connections": {
+                "input_table": {
+                    "id": 3,
+                    "output_name": "output"
+                }
+            },
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool Join",
+                    "name": "input_table"
+                }
+            ],
+            "label": null,
+            "name": "Join",
+            "outputs": [
+                {
+                    "name": "joined_table",
+                    "type": "tsv"
+                }
+            ],
+            "position": {
+                "left": 1088.11669921875,
+                "top": 31.416671752929688
+            },
+            "post_job_actions": {},
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/humann2_join_tables/humann2_join_tables/0.11.1.2",
+            "tool_shed_repository": {
+                "changeset_revision": "d05ac93eabf3",
+                "name": "humann2_join_tables",
+                "owner": "iuc",
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            },
+            "tool_state": "{\"input_table\": {\"__class__\": \"RuntimeValue\"}, \"__page__\": null, \"__rerun_remap_job_id__\": null}",
+            "tool_version": "0.11.1.2",
+            "type": "tool",
+            "uuid": "5de66bab-6e15-45fd-892e-923150978a59",
+            "when": null,
+            "workflow_outputs": [
+                {
+                    "label": "Join on input dataset(s): Joined table",
+                    "output_name": "joined_table",
+                    "uuid": "28e79ee1-2537-43af-b3c7-5f983046ed43"
+                }
+            ]
+        }
+    },
+    "tags": [
+        "GUCFG2Galaxy"
+    ],
+    "uuid": "d113ffe4-497c-4c80-89d7-cdbac30720a2",
+    "version": 17
+}
