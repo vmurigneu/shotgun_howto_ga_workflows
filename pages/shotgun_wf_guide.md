@@ -115,7 +115,7 @@ The "Output Dataset Collections" items contain the output file for each sample s
 
 Figure: Workflow Report
 
-<p align="center"><img src="/images/workflow_report.png" width="99%"></p>
+<p align="center"><img src="./images/workflow_report.png" width="99%"></p>
 
 ---
 
