@@ -1,7 +1,7 @@
 ---
-title: Shotgun metagenomics Workflow
+title: Shotgun metagenomics Workflow with MetaPhlAn v2
 type: guide
-description: How-to guide for Shotgun metagenomics workflow on Galaxy Australia
+description: How-to guide for Shotgun metagenomics workflow with MetaPhlAn v2 on Galaxy Australia
 affiliations: QCIF
 toc: false
 ---
@@ -78,12 +78,38 @@ G. Clicking on a collection reveals its content.
 
 ### 3. Run the shotgun workflow
 
-  Search for the shotgun metagenomics workflow under "workflow" and run it. The "input fastq collection" should be the collection you just created ("10 samples"). 
+A. Click on "Workflow" in the Galaxy horizontal menu  
+B. Search for the shotgun metagenomics workflow called "Analyses of shotgun metagenomics data with MetaPhlAn v2". [Link](https://usegalaxy.org.au/u/valentine_murigneux/w/analyses-of-shotgun-metagenomics-data-with-metaphlan-v2) to the shotgun metagenomics workflow for collection  
+C. Click on "Run workflow" (white arrow on the right)  
+D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history.  
+E. Click on "Run Workflow" 
+  
+Figure: Run the workflow
 <p align="center"><img src="./images/run_workflow.png"></p>
 
 <p align="center"><img src="./images/run_workflow_collection.png" width="100%"></p>
 
-[Link](https://usegalaxy.org.au/u/valentine_murigneux/w/shotgun-metagenomics-ga-workflow-for-collection) to the shotgun metagenomics workflow for collection  
+### 4. Once the workflow has completed, open the report
+A report will be automatically generated for each invocation of the workflow. The report is located under the menu "User" -> "Workflow Invocations".  
+A. Click on "User" in the Galaxy horizontal menu   
+B. Click on "Workflow Invocations"  
+C. Scroll down and click on the name of the workflow: "Analyses of shotgun metagenomics data (for collection) with subworkflow".  
+D. Right Click "View Report" -> Open in a new tab   
+E. The main output files are located under the "Workflow Outputs" section.  
+* Output Dataset: Krona pie plot (MetaPhIAn2 taxonomy abundance)
+* Output Dataset: Merged MetaPhIAn2 taxonomy abundance table with sample ID
+* Output Dataset: HUMAnN2 merged gene families abundance
+* Output Dataset: HUMAnN2 merged pathways coverage
+* Output Dataset: HUMAnN2 merged and normalised pathways abundance
+* Output Dataset: HUMAnN2 merged and normalised gene families abundance
+* Output Dataset: HUMAnN2 regrouped, merged and normalised gene families abundance  
+
+You can download each output dataset by clicking on the icon "Download Dataset" on the top right corner.  
+The "Output Dataset Collections" items contain the output file for each sample separately ().  
+
+Figure: Workflow Report
+
+<p align="center"><img src="/images/workflow_report.png" width="99%"></p>
 
 ---
 
