@@ -24,7 +24,13 @@ The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics 
 
 # Analysis overview
 
-<p align="center"><img src="./images/overview_shotgun.png" alt="Logo" width="45%"></p>
+The diagram below represents an overview of the shotgun metagenomics pipeline, with the tools used (blue), the databases (orange), and the input and output data (yellow).  
+
+<p align="center"><img src="./images/shotgun_workflow_scheme.png" alt="Logo" width="65%"></p>
+
+The different steps of the pipeline are representing in more details in the Galaxy workflow diagram below. The arrows in orange point to the main results files.
+
+<p align="center"><img src="./images/shotgun_galaxy_workflow_image.png" alt="Logo2" width="95%"></p>
 
 ## 1. Extraction of taxonomic information ([MetaPhlAn2](https://huttenhower.sph.harvard.edu/metaphlan2/))
 
