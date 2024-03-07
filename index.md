@@ -3,7 +3,9 @@ title: Shotgun Metagenomic Workflow landing page
 type: guide
 contributors: 
 description: How-to guide for Shotgun Metagenomics workflows on Galaxy Australia.
-affiliations: 
+affiliations:
+toc: true
+sidebar: false
 ---
 
 
