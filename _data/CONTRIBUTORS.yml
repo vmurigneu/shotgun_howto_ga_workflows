@@ -19,4 +19,16 @@
 #    role: author
 #    affiliation: Australian BioCommons / University of Melbourne
 
+Valentine Murigneux:
+    affiliation: QCIF / University of Queensland
+    orcid: 0000-0002-1235-9462
+    role: first-author
 
+Mike Thang:
+    affiliation: QCIF / University of Queensland
+    orcid: 0000-0002-1480-3563
+    role: author
+
+Igor Makunin:
+    affiliation: QCIF / Australian Biocommons
+    role: author   
