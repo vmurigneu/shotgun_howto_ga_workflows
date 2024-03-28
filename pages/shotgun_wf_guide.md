@@ -3,10 +3,16 @@ title: Shotgun metagenomics Workflow with MetaPhlAn v2
 type: guide
 description: How-to guide for Shotgun metagenomics workflow with MetaPhlAn v2 on Galaxy Australia
 affiliations: QCIF
-toc: true
-sidebar: false
+toc: false
 ---
+  - [Background](#background-and-tutorials)
+  - [Overview](#analysis-overview)
+  - [User guide](#user-guide)
+      + [Running a multi sample experiment](#running-a-multi-sample-experiment)
+  - [Example output](#example-output)
+  - [Licenses](#licenses)
 
+---
 
 # Background and Tutorials 
 
