@@ -4,6 +4,8 @@ type: guide
 contributors: 
 description: How-to guide for Shotgun Metagenomics workflows on Galaxy Australia.
 affiliations: 
+toc: true
+sidebar: false
 ---
 
 
