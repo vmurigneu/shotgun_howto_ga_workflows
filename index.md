@@ -16,7 +16,8 @@ This workflow represents just one way of processing data for a ‘typical’ sho
 
 ## Please cite this guide as follows
 
-> [Citation information goes here]
+
+Murigneux, V., Thang, M., Hiltemann, S., & Batut, B. (2024). **Analyses of shotgun metagenomics data with MetaPhlAn2**. WorkflowHub. <a href="https://doi.org/10.48546/WORKFLOWHUB.WORKFLOW.220.2" ga-product="workflow_doi" ga-id="220_conversion_qc">https://doi.org/10.48546/WORKFLOWHUB.WORKFLOW.624.1</a>
 
 
 ## Acknowledgements
