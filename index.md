@@ -21,7 +21,7 @@ This workflow represents just one way of processing data for a ‘typical’ sho
 
 ## Acknowledgements
 
-The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics data](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data)
+The workflow is based on the Galaxy Training tutorial [Analyses of metagenomics data](https://training.galaxyproject.org/training-material/topics/metagenomics/tutorials/general-tutorial/tutorial.html#shotgun-metagenomics-data) developed by Saskia Hiltemann and Berenice Batut. 
 
 This guide makes use of the ELIXIR toolkit theme: [![theme badge](https://img.shields.io/badge/ELIXIR%20toolkit%20theme-jekyll-blue?color=0d6efd)](https://github.com/ELIXIR-Belgium/elixir-toolkit-theme)
 
