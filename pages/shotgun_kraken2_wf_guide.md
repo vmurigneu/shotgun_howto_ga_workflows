@@ -1,0 +1,113 @@
+---
+title: Shotgun metagenomics Workflow with Kraken v2
+type: guide
+description: How-to guide for Shotgun metagenomics workflow with Kraken v2 on Galaxy Australia
+toc: true
+sidebar: false
+---
+
+# Background and Tutorials 
+
+This document describes how to use a shotgun metagenomics workflow on Galaxy Australia. The aim of this workflow is to handle the routine part of shotgun metagenomics data processing. The workflow is using the tools Kraken2 and Bracken for taxonomy classification and the KrakenTools to evaluate diversity metrics.  
+
+---
+
+# Analysis overview
+
+The diagram below represents an overview of the shotgun metagenomics pipeline using Kraken2 and Bracken, with the tools used (blue), the databases (orange), and the input and output data (yellow).  
+
+<p align="center"><img src="./images/shotgun_kraken2_workflow_scheme.png" alt="Logo" width="65%"></p>
+
+The different steps of the pipeline are representing in more details in the Galaxy workflow diagram below. The arrows in orange point to the main results files.
+
+<p align="center"><img src="./images/shotgun_kraken2_galaxy_workflow_image.png" alt="Logo2" width="95%"></p>
+
+## 1. Extraction of taxonomic information ([Kraken2]([https://github.com/DerrickWood/kraken2)] and [Bracken](https://github.com/jenniferlu717/Bracken))
+
+Assignation of taxonomy on the whole sequences is performed using the algorithm Kraken2. Kraken uses a K-mer based searching algorithm to assign taxonomic labels to the sequencing reads. 
+
+Bracken (Bayesian Reestimation of Abundance after Classification with Kraken) estimates the relative abundance at the species level.
+
+The Kraken2/Bracken database used is the PlusPF database which contains the Standard database (RefSeq archaea, bacteria, viral, plasmid, human, UniVec_Core) plus RefSeq protozoa and fungi (https://benlangmead.github.io/aws-indexes/k2)
+
+## 2. Evaluation of diversity metrics ([KrakenTools](https://github.com/jenniferlu717/KrakenTools))
+
+This part generates 2 types of diversity metrics:
+
+* Alpha diversity describes the diversity within a community. The Alpha diversity is calculated from the Bracken abundance estimation file. 
+
+* Beta diversity describes the difference in diversity between two or more communities. The Beta diversity (Bray-Curtis dissimilarity) is calculated from the Bracken abundance estimation file.  
+  
+# User guide
+## Running a multi sample experiment
+
+### 1. Upload the raw datasets (fastq files) in a Galaxy history
+
+### 2. Create a dataset collection containing the fastq files 
+The goal of a collection is to process all the samples at once.  
+
+The workflow will take one fastq file per sample as input.     
+* If the dataset are single-end reads, include all the files in the collection
+* If the dataset are paired-end reads, only include the forward reads (R1) for each sample
+
+Figure: Creating a collection
+
+<p align="center"><img src="./images/create_collection.png" width="99%"></p>
+
+A. Click the checkbox icon. This will reveal checkboxes to the left of all datasets in the history.  
+B. In this case we want to select all datasets, so press "Select All" button (alternatively datasets can be filtered). This will put a check mark into all checkboxes.  
+C. Click "All 10 selected..." button. This will reveal a dropdown.  
+D. Since this is not paired-end (or mate-pair) data we will choose to "Build Dataset List". This will open a dataset collection creator interface.  
+E. Within the dataset collection creator interface, use the "Name" box to name the collection. "Hide original elements" checkbox ensures that upon creating the collection the original datasets will be hidden from the history as shown in the next figure. Click "Create collection".  
+F. A collection named "10 samples" is now added to the history and original datasets are hidden, so that the history only has one item.  
+G. Clicking on a collection reveals its content.
+
+### 3. Run the shotgun workflow
+
+A. Click on "Workflow" in the Galaxy horizontal menu  
+B. Search for the shotgun metagenomics workflow called "Metagenomics pipeline using Kraken2 and Bracken". [Link](/https://usegalaxy.org.au/u/valentine_murigneux/w/metagenomics-pipeline-using-kraken2) to the shotgun metagenomics workflow for collection  
+C. Click on "Run workflow" (white arrow on the right)  
+D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history.  
+E. Click on "Run Workflow" 
+  
+Figure: Run the workflow
+<p align="center"><img src="./images/run_workflow.png"></p>
+
+<p align="center"><img src="./images/run_workflow_collection.png" width="100%"></p>
+
+### 4. Once the workflow has completed, open the report
+A report will be automatically generated for each invocation of the workflow. The report is located under the menu "User" -> "Workflow Invocations".  
+A. Click on "User" in the Galaxy horizontal menu   
+B. Click on "Workflow Invocations"  
+C. Scroll down and click on the name of the workflow: "Metagenomics pipeline using Kraken2 and Bracken".  
+D. Right Click "View Report" -> Open in a new tab   
+E. The main output files are located under the "Workflow Outputs" section.  
+* Output Dataset: Kraken2 combined report
+* Output Dataset: Bracken combined report (final Bracken taxonomy/species abundance)
+* Output Dataset: Krona pie plot (Bracken taxonomy abundance)
+* Output Dataset: alpha diversity metrics
+* Output Dataset: beta diversity metrics
+
+You can download each output dataset by clicking on the icon "Download Dataset" on the top right corner.  
+The "Output Dataset Collections" items contain the output file for each sample separately.  
+
+Figure: Workflow Report
+
+<p align="center"><img src="./images/workflow_report.png" width="99%"></p>
+
+---
+
+  ---
+
+# Licenses
+
+Usage of this workflow is dependant on the (generally permissive) licences of the underlying tools and platforms; including;
+
+* [Kraken2](https://github.com/DerrickWood/kraken2/blob/master/LICENSE)
+* [Bracken](https://github.com/jenniferlu717/Bracken/blob/master/LICENSE)
+* [KrakenTools](https://github.com/jenniferlu717/KrakenTools/blob/master/LICENSE)
+* [Krona](https://github.com/marbl/Krona/blob/master/KronaTools/LICENSE.txt)
+* [Galaxy](https://galaxyproject.org/admin/license/)
+* [Galaxy Australia terms of service](https://site.usegalaxy.org.au/about#terms-of-service)
+
+
