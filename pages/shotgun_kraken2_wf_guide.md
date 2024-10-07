@@ -22,7 +22,7 @@ The different steps of the pipeline are representing in more details in the Gala
 
 <p align="center"><img src="./images/shotgun_kraken2_galaxy_workflow_image.png" alt="Logo2" width="95%"></p>
 
-## 1. Extraction of taxonomic information ([Kraken2]([https://github.com/DerrickWood/kraken2)] and [Bracken](https://github.com/jenniferlu717/Bracken))
+## 1. Extraction of taxonomic information ([Kraken2]([https://github.com/DerrickWood/kraken2) and [Bracken](https://github.com/jenniferlu717/Bracken))
 
 Assignation of taxonomy on the whole sequences is performed using the algorithm Kraken2. Kraken uses a K-mer based searching algorithm to assign taxonomic labels to the sequencing reads. 
 
