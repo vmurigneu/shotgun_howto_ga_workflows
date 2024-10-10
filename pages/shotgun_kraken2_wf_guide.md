@@ -16,27 +16,27 @@ This document describes how to use a shotgun metagenomics workflow on Galaxy Aus
 
 The diagram below represents an overview of the shotgun metagenomics pipeline using Kraken2 and Bracken, with the tools used (blue), the databases (orange), and the input and output data (yellow).  
 
-<p align="center"><img src="./images/shotgun_kraken2_workflow_scheme.png" alt="Logo" width="65%"></p>
+<p align="center"><img src="../images/shotgun_kraken_workflow_scheme.png" alt="Workflow_scheme" width="65%"></p>
 
 The different steps of the pipeline are representing in more details in the Galaxy workflow diagram below. The arrows in orange point to the main results files.
 
-<p align="center"><img src="./images/shotgun_kraken2_galaxy_workflow_image.png" alt="Logo2" width="95%"></p>
+<p align="center"><img src="../images/shotgun_kraken2_galaxy_workflow_image.png" alt="Galaxy_workflow" width="95%"></p>
 
 ## 1. Extraction of taxonomic information ([Kraken2](https://github.com/DerrickWood/kraken2) and [Bracken](https://github.com/jenniferlu717/Bracken))
 
-Assignation of taxonomy on the whole sequences is performed using the algorithm Kraken2. Kraken uses a K-mer based searching algorithm to assign taxonomic labels to the sequencing reads. 
+* Assignation of taxonomy on the whole sequences is performed using the algorithm [Kraken2](https://github.com/DerrickWood/kraken2). Kraken2 uses a K-mer based searching algorithm to assign taxonomic labels to the sequencing reads. 
 
-Bracken (Bayesian Reestimation of Abundance after Classification with Kraken) estimates the relative abundance at the species level.
+* [Bracken](https://github.com/jenniferlu717/Bracken) (Bayesian Reestimation of Abundance after Classification with Kraken) estimates the relative abundance at the species level.
 
-The Kraken2/Bracken database used is the PlusPF database which contains the Standard database (RefSeq archaea, bacteria, viral, plasmid, human, UniVec_Core) plus RefSeq protozoa and fungi (https://benlangmead.github.io/aws-indexes/k2)
+* The Kraken2/Bracken database used is the PlusPF database which contains the Standard database (RefSeq archaea, bacteria, viral, plasmid, human, UniVec_Core) plus RefSeq protozoa and fungi (https://benlangmead.github.io/aws-indexes/k2)
 
 ## 2. Evaluation of diversity metrics ([KrakenTools](https://github.com/jenniferlu717/KrakenTools))
 
-This part generates 2 types of diversity metrics:
+[KrakenTools](https://github.com/jenniferlu717/KrakenTools) are used to generate two types of diversity metrics from the Bracken adundance estimation file:
 
-* Alpha diversity describes the diversity within a community. The Alpha diversity is calculated from the Bracken abundance estimation file. 
+* Alpha diversity describes the diversity within a community. The Shannon's, the Simpson's and the Fisher's diversity index are calculated. 
 
-* Beta diversity describes the difference in diversity between two or more communities. The Beta diversity (Bray-Curtis dissimilarity) is calculated from the Bracken abundance estimation file.  
+* Beta diversity describes the difference in diversity between two or more communities. The Bray-Curtis dissimilarity beta diversity is calculated. 
   
 # User guide
 ## Running a multi sample experiment
