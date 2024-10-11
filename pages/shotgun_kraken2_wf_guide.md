@@ -79,8 +79,7 @@ A report will be automatically generated for each invocation of the workflow. Th
 A. Click on "Data" in the Galaxy horizontal menu   
 B. Click on "Workflow Invocations"  
 C. Scroll down and click on the name of the workflow: "Taxonomy classification using Kraken2 and Bracken".  
-D. Right Click "View Report" -> Open in a new tab   
-E. The main output files are located under the "Workflow Outputs" section.  
+D. The main output files are located under the "Outputs" section.  
 * Output Dataset: Kraken2 combined report
 * Output Dataset: Bracken combined report (final Bracken taxonomy/species abundance)
 * Output Dataset: Krona pie plot (Bracken taxonomy abundance)
@@ -92,7 +91,7 @@ The "Output Collections" items contain the output file for each sample separatel
 
 Figure: Workflow Report
 
-<p align="center"><img src="./images/workflow_report_kraken.png" width="99%"></p>
+<p align="center"><img src="../images/workflow_report_kraken.png" width="99%"></p>
 
 ---
 
