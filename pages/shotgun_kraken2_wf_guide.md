@@ -18,7 +18,7 @@ The diagram below represents an overview of the shotgun metagenomics pipeline us
 
 <p align="center"><img src="../images/shotgun_kraken_workflow_scheme.png" alt="Workflow_scheme" width="65%"></p>
 
-The different steps of the pipeline are representing in more details in the Galaxy workflow diagram below. The arrows in orange point to the main results files.
+The different steps of the pipeline are representing in more details in the Galaxy workflow diagram below.  
 
 <p align="center"><img src="../images/shotgun_kraken2_galaxy_workflow_image.png" alt="Galaxy_workflow" width="95%"></p>
 
