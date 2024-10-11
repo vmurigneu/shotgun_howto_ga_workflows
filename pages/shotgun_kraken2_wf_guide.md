@@ -65,35 +65,34 @@ G. Clicking on a collection reveals its content.
 ### 3. Run the shotgun workflow
 
 A. Click on "Workflow" in the Galaxy horizontal menu, then click on "Public workflows"  
-B. Search for the shotgun metagenomics workflow called "Metagenomics pipeline using Kraken2 and Bracken". [Link](/https://usegalaxy.org.au/u/valentine_murigneux/w/metagenomics-pipeline-using-kraken2)  
-C. Click on "Run workflow" (white arrow on the bottom right)  
-D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history.  
-E. Click on "Run Workflow" 
-  
-Figure: Run the workflow
-<p align="center"><img src="../images/run_workflow_kraken_step1.png"></p>
+B. Search for the shotgun metagenomics workflow called "Taxonomy classification using Kraken2 and Bracken".  
+C. Click on "Run workflow" (white arrow on the bottom right corner)  
+D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history  
+E. Click on "Run Workflow"  
+[Link to the workflow on Galaxy Australia](https://usegalaxy.org.au/u/valentine_murigneux/w/taxonomy-classification-using-kraken2-and-bracken)  
 
-<p align="center"><img src="../images/run_workflow_kraken_step2.png" width="100%"></p>
+Figure: Run the workflow
+<p align="center"><img src="../images/run_workflow_kraken.png" width="100%"></p>
 
 ### 4. Once the workflow has completed, open the report
-A report will be automatically generated for each invocation of the workflow. The report is located under the menu "User" -> "Workflow Invocations".  
-A. Click on "User" in the Galaxy horizontal menu   
+A report will be automatically generated for each invocation of the workflow. The report is located under the menu "Data" -> "Workflow Invocations".  
+A. Click on "Data" in the Galaxy horizontal menu   
 B. Click on "Workflow Invocations"  
-C. Scroll down and click on the name of the workflow: "Metagenomics pipeline using Kraken2 and Bracken".  
+C. Scroll down and click on the name of the workflow: "Taxonomy classification using Kraken2 and Bracken".  
 D. Right Click "View Report" -> Open in a new tab   
 E. The main output files are located under the "Workflow Outputs" section.  
 * Output Dataset: Kraken2 combined report
 * Output Dataset: Bracken combined report (final Bracken taxonomy/species abundance)
 * Output Dataset: Krona pie plot (Bracken taxonomy abundance)
-* Output Dataset: alpha diversity metrics
-* Output Dataset: beta diversity metrics
+* Output Dataset: alpha diversity summary file
+* Output Dataset: beta diversity summary file
 
 You can download each output dataset by clicking on the icon "Download Dataset" on the top right corner.  
 The "Output Dataset Collections" items contain the output file for each sample separately.  
 
 Figure: Workflow Report
 
-<p align="center"><img src="./images/workflow_report.png" width="99%"></p>
+<p align="center"><img src="./images/workflow_report_kraken.png" width="99%"></p>
 
 ---
 
