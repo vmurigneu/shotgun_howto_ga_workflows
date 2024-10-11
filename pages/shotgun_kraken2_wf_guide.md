@@ -87,8 +87,8 @@ E. The main output files are located under the "Workflow Outputs" section.
 * Output Dataset: Alpha diversity summary text file
 * Output Dataset: Beta diversity summary text file
 
-You can download each output dataset by clicking on the icon "Download Dataset" on the top right corner.  
-The "Output Dataset Collections" items contain the output file for each sample separately.  
+You can download each output dataset by clicking on the icon "Download" on the left.  
+The "Output Collections" items contain the output file for each sample separately.  
 
 Figure: Workflow Report
 
