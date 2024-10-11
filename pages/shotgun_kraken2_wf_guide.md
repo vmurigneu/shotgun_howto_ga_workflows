@@ -34,9 +34,9 @@ The different steps of the pipeline are representing in more details in the Gala
 
 [KrakenTools](https://github.com/jenniferlu717/KrakenTools) are used to generate two types of diversity metrics from the Bracken adundance estimation file:
 
-* Alpha diversity describes the diversity within a community. The Shannon's, the Simpson's and the Fisher's diversity index are calculated. 
+* **Alpha diversity** describes the diversity within a community. The Shannon's, the Simpson's and the Fisher's diversity index are calculated. 
 
-* Beta diversity describes the difference in diversity between two or more communities. The Bray-Curtis dissimilarity beta diversity is calculated. 
+* **Beta diversity** describes the difference in diversity between two or more communities. The Bray-Curtis dissimilarity beta diversity is calculated. 
   
 # User guide
 ## Running a multi sample experiment
@@ -52,7 +52,7 @@ The workflow will take one fastq file per sample as input.
 
 Figure: Creating a collection
 
-<p align="center"><img src="./images/create_collection.png" width="99%"></p>
+<p align="center"><img src="../images/create_collection.png" width="99%"></p>
 
 A. Click the checkbox icon. This will reveal checkboxes to the left of all datasets in the history.  
 B. In this case we want to select all datasets, so press "Select All" button (alternatively datasets can be filtered). This will put a check mark into all checkboxes.  
@@ -64,16 +64,16 @@ G. Clicking on a collection reveals its content.
 
 ### 3. Run the shotgun workflow
 
-A. Click on "Workflow" in the Galaxy horizontal menu  
-B. Search for the shotgun metagenomics workflow called "Metagenomics pipeline using Kraken2 and Bracken". [Link](/https://usegalaxy.org.au/u/valentine_murigneux/w/metagenomics-pipeline-using-kraken2) to the shotgun metagenomics workflow for collection  
-C. Click on "Run workflow" (white arrow on the right)  
+A. Click on "Workflow" in the Galaxy horizontal menu, then click on "Public workflows"  
+B. Search for the shotgun metagenomics workflow called "Metagenomics pipeline using Kraken2 and Bracken". [Link](/https://usegalaxy.org.au/u/valentine_murigneux/w/metagenomics-pipeline-using-kraken2)  
+C. Click on "Run workflow" (white arrow on the bottom right)  
 D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history.  
 E. Click on "Run Workflow" 
   
 Figure: Run the workflow
-<p align="center"><img src="./images/run_workflow.png"></p>
+<p align="center"><img src="../images/run_workflow_kraken_step1.png"></p>
 
-<p align="center"><img src="./images/run_workflow_collection.png" width="100%"></p>
+<p align="center"><img src="../images/run_workflow_kraken_step2.png" width="100%"></p>
 
 ### 4. Once the workflow has completed, open the report
 A report will be automatically generated for each invocation of the workflow. The report is located under the menu "User" -> "Workflow Invocations".  
