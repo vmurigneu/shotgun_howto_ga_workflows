@@ -84,8 +84,8 @@ E. The main output files are located under the "Workflow Outputs" section.
 * Output Dataset: Kraken2 combined report
 * Output Dataset: Bracken combined report (final Bracken taxonomy/species abundance)
 * Output Dataset: Krona pie plot (Bracken taxonomy abundance)
-* Output Dataset: alpha diversity summary file
-* Output Dataset: beta diversity summary file
+* Output Dataset: Alpha diversity summary text file
+* Output Dataset: Beta diversity summary text file
 
 You can download each output dataset by clicking on the icon "Download Dataset" on the top right corner.  
 The "Output Dataset Collections" items contain the output file for each sample separately.  
@@ -95,8 +95,6 @@ Figure: Workflow Report
 <p align="center"><img src="./images/workflow_report_kraken.png" width="99%"></p>
 
 ---
-
-  ---
 
 # Licenses
 
