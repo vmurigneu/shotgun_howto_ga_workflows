@@ -64,9 +64,14 @@ G. Clicking on a collection reveals its content.
 
 ### 3. Create a samplesheet file
 
-The samplesheet file is a text file containing two columns:
+The samplesheet file is a text file containing two columns without a header line:
 * the first column contains the name of the fastq files
 * the second column contains the corresponding sample name to appear in the results tables
+
+| Fastq file name | Sample name |
+|-------|:-----:|
+| UAS075V1_S10_R1_001.fastq.gz | UAS075V1 |
+| BAR14V1_S15_R1_001.fastq.gz | BAR14V1 |
 
 ### 4. Run the shotgun workflow
 
