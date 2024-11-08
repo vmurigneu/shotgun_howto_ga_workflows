@@ -26,7 +26,7 @@ The different steps of the pipeline are representing in more details in the Gala
 
 * Assignation of taxonomy on the whole sequences is performed using the algorithm [Kraken2](https://github.com/DerrickWood/kraken2). Kraken2 uses a K-mer based searching algorithm to assign taxonomic labels to the sequencing reads. 
 
-* [Bracken](https://github.com/jenniferlu717/Bracken) (Bayesian Reestimation of Abundance after Classification with Kraken) estimates the relative abundance at the species level.
+* [Bracken](https://github.com/jenniferlu717/Bracken) (Bayesian Reestimation of Abundance after Classification with Kraken) re-estimates abundances of different taxa at the taxonomy level pre-determined by the user (the species level was chosen for this pipeline).
 
 * The Kraken2/Bracken database used is the PlusPF database which contains the Standard database (RefSeq archaea, bacteria, viral, plasmid, human, UniVec_Core) plus RefSeq protozoa and fungi (https://benlangmead.github.io/aws-indexes/k2)
 
@@ -62,9 +62,9 @@ E. Within the dataset collection creator interface, use the "Name" box to name t
 F. A collection named "10 samples" is now added to the history and original datasets are hidden, so that the history only has one item.  
 G. Clicking on a collection reveals its content.
 
-### 3. Create a samplesheet file
+### 3. Create a samplesheet file and upload it to the same Galaxy history
 
-The samplesheet file is a text file containing two columns without a header line:
+The samplesheet file is a tabular file containing two columns without a header line:
 * the first column contains the name of the fastq files
 * the second column contains the corresponding sample name to appear in the results tables
 
@@ -78,7 +78,7 @@ The samplesheet file is a text file containing two columns without a header line
 A. Click on "Workflow" in the Galaxy horizontal menu, then click on "Public workflows"  
 B. Search for the shotgun metagenomics workflow called "Taxonomy classification using Kraken2 and Bracken".  
 C. Click on "Run workflow" (white arrow on the bottom right corner)  
-D. Select the "input fastq collection" to be the collection you just created ("10 samples") from the currenty history  
+D. Select the "Input fastq collection" to be the collection you just created ("10 samples") from the current history. Select the "Input samplesheet file" to be the samplesheet file you created and uploaded to the current history. 
 E. Click on "Run Workflow"  
 [Link to the workflow on Galaxy Australia](https://usegalaxy.org.au/u/valentine_murigneux/w/taxonomy-classification-using-kraken2-and-bracken)  
 
@@ -91,11 +91,18 @@ A. Click on "Data" in the Galaxy horizontal menu
 B. Click on "Workflow Invocations"  
 C. Scroll down and click on the name of the workflow: "Taxonomy classification using Kraken2 and Bracken".  
 D. The main output files are located under the "Outputs" section.  
-* Output Dataset: Kraken2 combined report
-* Output Dataset: Bracken combined report (final Bracken taxonomy/species abundance)
-* Output Dataset: Krona pie plot (Bracken taxonomy abundance)
+* Output Dataset: Kraken2 combined report ([output format](https://github.com/jenniferlu717/KrakenTools?tab=readme-ov-file#2-combine_kreportspy-output)). Percentage of total reads is only reported for the summed read counts, not for each individual sample.
+* Output Dataset: Bracken combined report ([output format](https://github.com/jenniferlu717/KrakenTools?tab=readme-ov-file#2-combine_kreportspy-output)). All the reads are pushed to the species level.  
+* Output Dataset: Bracken species abundance combined results (one column per sample containing the fraction of total reads for each species)
+* Output Dataset: Krona pie plot (Bracken results)
 * Output Dataset: Alpha diversity summary text file
 * Output Dataset: Beta diversity summary text file
+  
+Additional intermediate output files per sample can be found in the Galaxy history:
+* Output Collection: "Kraken2 on collection X: Report" ([Sample Report Output Format](https://github.com/DerrickWood/kraken2/wiki/Manual#sample-report-output-format)) 
+* Output Collection: "Kraken2 on collection X: Classification" [Standard Kraken Output Format](https://github.com/DerrickWood/kraken2/wiki/Manual#standard-kraken-output-format))  
+* Output Collection: "Bracken on collection X: Report" ([Bracken Output File Format](https://ccb.jhu.edu/software/bracken/index.shtml?t=manual#format))
+* Output Collection: "Bracken on collection X: Kraken style report" ([Sample Report Output Format](https://github.com/DerrickWood/kraken2/wiki/Manual#sample-report-output-format))   
 
 You can download each output dataset by clicking on the icon "Download" on the left.  
 The "Output Collections" items contain the output file for each sample separately.  
