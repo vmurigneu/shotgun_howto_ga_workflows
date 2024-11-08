@@ -62,7 +62,13 @@ E. Within the dataset collection creator interface, use the "Name" box to name t
 F. A collection named "10 samples" is now added to the history and original datasets are hidden, so that the history only has one item.  
 G. Clicking on a collection reveals its content.
 
-### 3. Run the shotgun workflow
+### 3. Create a samplesheet file
+
+The samplesheet file is a text file containing two columns:
+* the first column contains the name of the fastq files
+* the second column contains the corresponding sample name to appear in the results tables
+
+### 4. Run the shotgun workflow
 
 A. Click on "Workflow" in the Galaxy horizontal menu, then click on "Public workflows"  
 B. Search for the shotgun metagenomics workflow called "Taxonomy classification using Kraken2 and Bracken".  
